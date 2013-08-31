@@ -1,0 +1,263 @@
+﻿/* Stylesheet for Feed Me Hash application
+   by Maggy Maffia, 08/2013 */
+
+body 
+{
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, Serif;
+    color: #351a13;
+    background: #ebf2c9;
+    font-size: 12px;
+}
+
+a
+{
+    font-weight: bold;
+    text-decoration: underline;
+    color: #3a5230;
+}
+a:hover
+{
+    color: #6e7c2f;
+    text-decoration: none;
+}
+
+/* Bird, leaves, etc. fixed images 
+   Based on a stock image obtained from GettyImages.com */
+#bottom_left
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 317px;
+	height: 600px;
+	background: url('images/fmh_bl.jpg') no-repeat;
+	z-index: 0;
+}
+#bottom_right
+{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 138px;
+	height: 254px;
+	background: url('images/fmh_br.jpg') no-repeat;
+	z-index: 0;
+}
+#top_right
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 193px;
+	height: 152px;
+	background: url('images/fmh_tr.jpg') no-repeat;
+	z-index: 0;
+}
+#top_left
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 125px;
+	height: 175px;
+	background: url('images/fmh_tl.jpg') no-repeat;
+	z-index: 1;
+}
+
+#outer_div
+{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+#blank_outer_table
+{
+    width: 650px;
+    margin: 15% auto 0 auto;
+    text-align: center;
+}
+
+td.NameImage
+{
+	background: url('images/fmh_name.jpg') no-repeat center;
+	min-width: 389px;
+	height: 54px;
+}
+
+
+
+.options_area
+{
+    width: 100%;
+    background: #434343;
+    padding: 10px;
+    text-align: left;
+}
+
+.InitInputStyle
+{
+	font-size: 42px;
+	padding: 3px; 
+	background: #765738;
+	border: solid 2px #472f13;
+	font-family: Georgia, Serif;
+	color: #b08254;
+}
+
+/* LEFT OFF HERE, 08/30/2013: Finish style sheet as I develop */
+
+
+.InputStyle, input[type="checkbox"]
+{
+    background: #292929;
+    font-family: Verdana, Sans-Serif;
+    border: solid 1px #727272;
+    color: #c2c2c2;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.ButtonStyle
+{
+    border: solid 2px #22b8a1;
+    background: #188271;
+    color: #28ddc1;
+    font-weight: bold;
+    font-size: 11px;
+    font-family: Verdana, Sans-Serif;
+}
+
+.BigButtonStyle
+{
+    border: solid 2px #22b8a1;
+    background: #188271;
+    color: #28ddc1;
+    font-weight: bold;
+    font-size: 25px;
+    font-family: Verdana, Sans-Serif;
+}
+.DisabledBigButtonStyle
+{
+    border: solid 2px #7e7e7e;
+    font-family: Verdana, Sans-Serif;
+    font-weight: bold;
+    font-size: 25px;
+    background: #5d5d5d;
+    color: #7e7e7e;
+}
+
+.LetterButtonStyle
+{
+    border: solid 2px #f4e82d;
+    font-family: Verdana, Sans-Serif;
+    font-weight: bold;
+    font-size: 25px;
+    background: #a9a21f;
+    color: #f4e82d;
+    width: 50px;
+}
+.DisabledLetterButtonStyle
+{
+    border: solid 2px #7e7e7e;
+    font-family: Verdana, Sans-Serif;
+    font-weight: bold;
+    font-size: 25px;
+    background: #5d5d5d;
+    color: #7e7e7e;
+    width: 50px;
+}
+
+.SolveInputStyle
+{
+    font-size: 25px;
+    color: #f4e82d;
+    font-weight: bold;
+    background: #292929;
+    font-family: Verdana, Sans-Serif;
+    border: solid 1px #727272;
+    padding: 2px;
+}
+
+.BlankSpace
+{
+    font-weight: bold;
+    color: #000000;
+    font-size: 35px;
+}
+
+.CorrectLetter
+{
+    font-size: 35px;
+    font-weight: bold;
+    color: #28ddc1;
+}
+
+.WrongLetter
+{
+    font-size: 35px;
+    font-weight: bold;
+    color: #f2362d;
+}
+
+.Divider
+{
+    display: block;
+    width: 100%;
+    border-bottom: solid 2px #535353;
+}
+
+.ModalStyle
+{
+    background: #2d2d2d;
+    border: solid 3px #292929;
+    color: #a2a2a2;
+    font-size: 10px;
+    padding: 10px;
+}
+.ModalStyle h4
+{
+    color: #f4e82d;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 2px 5px 2px 5px; 
+    text-align: center;
+}
+.ModalStyle img
+{
+    border: solid 1px #2d2d2d;
+    text-align: center;
+}
+
+.ModalDivider
+{
+    display: block;
+    width: 100%;
+    border-bottom: solid 2px #262626;   
+}
+
+.Footer
+{
+   text-align: center;
+   border-top: solid 8px #292929;
+   margin: 25px 0 25px 0;
+   padding: 10px 0 0 0;
+}
+
+.ValidatorCalloutStyle
+{
+    background-color: #973934;
+}
+
+.ValidatorCalloutStyle div, .ValidatorCalloutStyle td
+{
+    background-color: #973934;
+    border: solid 1px #f23d2d;
+    font-size: 10px;
+    padding: 3px 0 3px 0;
+    color: #f23d2d;
+}
