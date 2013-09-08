@@ -45,6 +45,12 @@
                 
                 <asp:Panel ID="result_pnl" runat="server" Visible="false">
                 
+                    <table>
+                        <tr>
+                            <td class="NameImage">&nbsp;</td>
+                        </tr>
+                    </table>
+                
                     <table id="outer_table">
                         <tr>
                             <td>

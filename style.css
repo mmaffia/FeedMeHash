@@ -87,7 +87,7 @@ a:hover
 	margin: 0 auto 0 auto;
 	text-align: left;
 	background: #d4d3ac;
-	border: solid 5px #765738;
+	border: solid 5px #a3926f;
 }
 
 .options_area
@@ -158,17 +158,18 @@ td.InitControls
 
 .GoLinkBtnSmall
 {
-	background: transparent url('images/fmh_go_sm.jpg') no-repeat scroll 0 -29px;
-	height: 30px;
+	background: transparent url('images/fmh_go_sm.jpg') no-repeat scroll 0 -28px;
+	height: 28px;
+	width: 58px;
 	display: block;
 	text-decoration: none;
 	
 }
 .GoLinkBtnSmall:hover
 {
-	background: transparent url('images/fmh_go_sm.jpg') no-repeat scroll 0 0;
+	background: transparent url('images/fmh_go_sm.jpg') no-repeat scroll 0 -2px;
     display: block;
-    height: 30px;
+    height: 28px;
 }
 
 .ButtonStyle
