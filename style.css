@@ -74,10 +74,18 @@ a:hover
     z-index: 2;
 }
 
-#blank_outer_table
+#center_outer_table
 {
     margin: 15% auto 0 auto;
     text-align: center;
+}
+
+#blank_outer_table
+{
+	width: 800px;
+	padding: 10px 0 0 0;
+	margin: 0 auto 0 auto;
+	text-align: left;
 }
 
 #outer_table
@@ -105,19 +113,18 @@ td.NameImage
 	min-width: 389px;
 	height: 54px;
 }
+td.NameImageLeft
+{
+	background: url('images/fmh_name.jpg') no-repeat left;
+	vertical-align: top;
+	min-width: 389px;
+	height: 54px;
+}
 
 td.InitControls
 {
 	height: 150px;
 	vertical-align: middle;
-}
-
-.options_area
-{
-    width: 100%;
-    background: #434343;
-    padding: 10px;
-    text-align: left;
 }
 
 .InitInputStyle
@@ -133,7 +140,7 @@ td.InitControls
 .InputStyle
 {
 	font-size: 22px;
-	padding: 2px 2px 2px 20px; 
+	padding: 2px 2px 2px 19px; 
 	background: #765738 url('images/fmh_hash_sm.jpg') no-repeat left;
 	border: solid 2px #472f13;
 	font-family: Georgia, Serif;

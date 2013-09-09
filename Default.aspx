@@ -23,8 +23,10 @@
         <asp:UpdatePanel ID="search_updatePnl" runat="server">
         
             <ContentTemplate>
+                
+                <%--Init panel--%>
                 <asp:Panel ID="initSearch_pnl" runat="server">
-                    <table id="blank_outer_table">
+                    <table id="center_outer_table">
                         <tr>
                             <td class="NameImage" colspan="2">
                                 &nbsp;
@@ -41,13 +43,14 @@
                         </tr>
                     </table>
                 </asp:Panel>
+                <%--/Init panel--%>
                 
-                
+                <%--Results panel--%>
                 <asp:Panel ID="result_pnl" runat="server" Visible="false">
                 
-                    <table>
+                    <table id="blank_outer_table">
                         <tr>
-                            <td class="NameImage">&nbsp;</td>
+                            <td class="NameImageLeft">&nbsp;</td>
                         </tr>
                     </table>
                 
@@ -55,11 +58,11 @@
                         <tr>
                             <td>
                                 
-                                <table id="options_area">
+                                <table class="options_area">
                                     <tr>
                                         <td>
-                                            <asp:TextBox ID="search_txt" runat="server" CssClass="InputStyle" Width="225px" />
-                                            <asp:TextBoxWatermarkExtender ID="search_twExt" runat="server" WatermarkText="Hashtag" TargetControlID="search_txt" />
+                                            <asp:TextBox ID="search_txt" runat="server" CssClass="InputStyle" Width="95%" />
+                                            <asp:TextBoxWatermarkExtender ID="search_twExt" runat="server" WatermarkText="Hashtag(s)" TargetControlID="search_txt" />
                                         </td>
                                         <td>
                                             <asp:LinkButton ID="go_lBtn" runat="server" CssClass="GoLinkBtnSmall" />
@@ -68,13 +71,37 @@
                                     
                                 </table>
                                 
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                        
+                                            <asp:Repeater ID="results_repeater" runat="server">
+                                            
+                                                <HeaderTemplate>
+                                                    <table width="100%">
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    
+                                                    <asp:Label ID="status_lbl" runat="server" Text='<%#Eval("Text") %>' />
+                                                    
+                                                    <%--LEFT OFF HERE, 09/08/2013--%>
+                                                </ItemTemplate>
+                                                <FooterTemplate>
+                                                    </table>
+                                                </FooterTemplate>
+                                                
+                                            </asp:Repeater>
+                                        
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                     
                     </table>
                 
                 </asp:Panel>
-                
+                <%--/Results panel--%>
                 
             </ContentTemplate>
             <Triggers>
