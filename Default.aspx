@@ -81,10 +81,11 @@
                                                     <table width="100%">
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
-                                                    
-                                                    <asp:Label ID="status_lbl" runat="server" Text='<%#Eval("Text") %>' />
-                                                    
-                                                    <%--LEFT OFF HERE, 09/08/2013--%>
+                                                        <tr>
+                                                            <td>
+                                                                <asp:Label ID="status_lbl" runat="server" Text='<%#Eval("Text") %>' />
+                                                            </td>
+                                                        </tr>
                                                 </ItemTemplate>
                                                 <FooterTemplate>
                                                     </table>

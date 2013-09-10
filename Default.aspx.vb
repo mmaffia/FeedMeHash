@@ -8,7 +8,7 @@ Imports System.Web
 Partial Class _Default
     Inherits System.Web.UI.Page
 
-    Private auth As WebAuthorizer
+    Private auth As SingleUserAuthorizer
     Private twitCtxt As TwitterContext
 
 
@@ -16,24 +16,45 @@ Partial Class _Default
         Try
 
 
-            'LEFT OFF HERE, 09/08/2013: Try Single User Authentication
+            'LEFT OFF HERE, 09/09/2013: Try Single User Authentication
             'ref: http://linqtotwitter.codeplex.com/wikipage?title=Single%20User%20Authorization&referringTitle=Learning%20to%20use%20OAuth
-
-            Dim credentials As IOAuthCredentials = New SessionStateCredentials()
-
-            If (credentials.ConsumerKey Is Nothing Or credentials.ConsumerSecret Is Nothing) Then
-                credentials.ConsumerKey = ConfigurationManager.AppSettings("TwitterConsumerKey")
-                credentials.ConsumerSecret = ConfigurationManager.AppSettings("TwitterConsumerSecret")
-            End If
-
-            Dim authURL As Action(Of String) = AddressOf Response.Redirect
-            auth = New WebAuthorizer()
-            auth = New WebAuthorizer With {.Credentials = credentials, .PerformRedirect = authURL}
+            '   -> Debug
 
 
-            If Not Page.IsPostBack Then
-                auth.CompleteAuthorization(Request.Url)
-            End If
+
+
+            'Dim credentials As IOAuthCredentials = New SessionStateCredentials()
+
+            'If (credentials.ConsumerKey Is Nothing Or credentials.ConsumerSecret Is Nothing) Then
+            '    credentials.ConsumerKey = ConfigurationManager.AppSettings("TwitterConsumerKey")
+            '    credentials.ConsumerSecret = ConfigurationManager.AppSettings("TwitterConsumerSecret")
+            'End If
+
+            'Dim authURL As Action(Of String) = AddressOf Response.Redirect
+            'auth = New WebAuthorizer()
+            'auth = New WebAuthorizer With {.Credentials = credentials, .PerformRedirect = authURL}
+
+
+            'If Not Page.IsPostBack Then
+            '    auth.CompleteAuthorization(Request.Url)
+            'End If
+
+
+
+
+
+
+            auth = New SingleUserAuthorizer() With { _
+                .Credentials = New SingleUserInMemoryCredentials() With { _
+                .ConsumerKey = ConfigurationManager.AppSettings("TwitterConsumerKey"), _
+                .ConsumerSecret = ConfigurationManager.AppSettings("TwitterConsumerSecret"), _
+                .TwitterAccessToken = ConfigurationManager.AppSettings("TwitterAccessToken"), _
+                .TwitterAccessTokenSecret = ConfigurationManager.AppSettings("TwitterAccessTokenSecret") _
+            } _
+}
+
+
+
 
         Catch ex As Exception
             Throw ex
@@ -46,11 +67,11 @@ Partial Class _Default
 
     Protected Sub initGo_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles initGo_lBtn.Click
 
-        Try
-            auth.BeginAuthorization(Request.Url)
-        Catch ex As Exception
-            Throw ex
-        End Try
+        'Try
+        '    auth.BeginAuthorization(Request.Url)
+        'Catch ex As Exception
+        '    Throw ex
+        'End Try
 
 
 
@@ -59,13 +80,16 @@ Partial Class _Default
 
         Dim htQuery As String = IIf(initSearch_txt.Text.Contains("#"), initSearch_txt.Text.Trim.Replace("#", "%23"), "%23" & initSearch_txt.Text.Trim)
 
+        Dim twitCtxt As TwitterContext = New TwitterContext(auth)
 
-        Using twitCtxt = New TwitterContext(auth)
-            Dim srch = (From search In twitCtxt.Search Where search.Type = SearchType.Search And search.Query = htQuery And search.Count = 7 Select search).SingleOrDefault
-            Dim resultsList As Generic.List(Of Status) = srch.Statuses
 
-            results_repeater.DataSource = resultsList
-        End Using
+        Dim srch = (From search In twitCtxt.Search Where search.Type = SearchType.Search And search.Query = initSearch_txt.Text.Trim Select search).SingleOrDefault
+        Dim resultsList As Generic.List(Of Status) = srch.Statuses
+
+        results_repeater.DataSource = resultsList
+        'Using twitCtxt = New TwitterContext(auth)
+
+        'End Using
 
 
     End Sub
