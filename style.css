@@ -198,75 +198,15 @@ td.InitControls
    font-size: 12px;
 }
 
-/* LEFT OFF HERE, 08/30/2013: Finish style sheet as I develop. Create a link button instead of the above monstrocity. */
-
-.SolveInputStyle
+.TweetResultStyle td
 {
-    font-size: 25px;
-    color: #f4e82d;
-    font-weight: bold;
-    background: #292929;
-    font-family: Verdana, Sans-Serif;
-    border: solid 1px #727272;
-    padding: 2px;
+	border: solid 3px #c5bf99;
+	padding: 5px;
+	margin: 0 0 10px 0;
 }
 
-.BlankSpace
-{
-    font-weight: bold;
-    color: #000000;
-    font-size: 35px;
-}
 
-.CorrectLetter
-{
-    font-size: 35px;
-    font-weight: bold;
-    color: #28ddc1;
-}
 
-.WrongLetter
-{
-    font-size: 35px;
-    font-weight: bold;
-    color: #f2362d;
-}
-
-.Divider
-{
-    display: block;
-    width: 100%;
-    border-bottom: solid 2px #535353;
-}
-
-.ModalStyle
-{
-    background: #2d2d2d;
-    border: solid 3px #292929;
-    color: #a2a2a2;
-    font-size: 10px;
-    padding: 10px;
-}
-.ModalStyle h4
-{
-    color: #f4e82d;
-    font-weight: bold;
-    font-size: 11px;
-    padding: 2px 5px 2px 5px; 
-    text-align: center;
-}
-.ModalStyle img
-{
-    border: solid 1px #2d2d2d;
-    text-align: center;
-}
-
-.ModalDivider
-{
-    display: block;
-    width: 100%;
-    border-bottom: solid 2px #262626;   
-}
 
 
 .ValidatorCalloutStyle

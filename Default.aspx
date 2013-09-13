@@ -78,11 +78,12 @@
                                             <asp:Repeater ID="results_repeater" runat="server">
                                             
                                                 <HeaderTemplate>
-                                                    <table width="100%">
+                                                    <table width="100%" class="TweetResultStyle">
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
                                                         <tr>
                                                             <td>
+                                                                <asp:LinkButton ID="screenName_lBtn" runat="server" Text='<%#Eval("ScreenName") %>' />
                                                                 <asp:Label ID="status_lbl" runat="server" Text='<%#Eval("Text") %>' />
                                                             </td>
                                                         </tr>
