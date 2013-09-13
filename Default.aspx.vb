@@ -8,7 +8,8 @@ Imports System.Web
 Partial Class _Default
     Inherits System.Web.UI.Page
 
-    Private auth As SingleUserAuthorizer
+    'Private auth As SingleUserAuthorizer
+    Private auth As ApplicationOnlyAuthorizer
     Private twitCtxt As TwitterContext
 
 
@@ -39,19 +40,28 @@ Partial Class _Default
             '    auth.CompleteAuthorization(Request.Url)
             'End If
 
-
-
-
-
-
-            auth = New SingleUserAuthorizer() With { _
-                .Credentials = New SingleUserInMemoryCredentials() With { _
+            auth = New ApplicationOnlyAuthorizer() With { _
+                .Credentials = New InMemoryCredentials() With { _
                 .ConsumerKey = ConfigurationManager.AppSettings("TwitterConsumerKey"), _
-                .ConsumerSecret = ConfigurationManager.AppSettings("TwitterConsumerSecret"), _
-                .TwitterAccessToken = ConfigurationManager.AppSettings("TwitterAccessToken"), _
-                .TwitterAccessTokenSecret = ConfigurationManager.AppSettings("TwitterAccessTokenSecret") _
-            } _
-}
+                .ConsumerSecret = ConfigurationManager.AppSettings("TwitterConsumerSecret") _
+                } _
+            }
+
+
+
+
+
+            '    auth = New SingleUserAuthorizer() With { _
+            '        .Credentials = New SingleUserInMemoryCredentials() With { _
+            '        .ConsumerKey = ConfigurationManager.AppSettings("TwitterConsumerKey"), _
+            '        .ConsumerSecret = ConfigurationManager.AppSettings("TwitterConsumerSecret"), _
+            '        .TwitterAccessToken = ConfigurationManager.AppSettings("TwitterAccessToken"), _
+            '        .TwitterAccessTokenSecret = ConfigurationManager.AppSettings("TwitterAccessTokenSecret") _
+            '    } _
+            '}
+
+
+
 
 
 
@@ -67,11 +77,11 @@ Partial Class _Default
 
     Protected Sub initGo_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles initGo_lBtn.Click
 
-        'Try
-        '    auth.BeginAuthorization(Request.Url)
-        'Catch ex As Exception
-        '    Throw ex
-        'End Try
+        Try
+            auth.Authorize()
+        Catch ex As Exception
+            Throw ex
+        End Try
 
 
 
@@ -87,6 +97,7 @@ Partial Class _Default
         Dim resultsList As Generic.List(Of Status) = srch.Statuses
 
         results_repeater.DataSource = resultsList
+        results_repeater.DataBind()
         'Using twitCtxt = New TwitterContext(auth)
 
         'End Using
