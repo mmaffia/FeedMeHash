@@ -198,15 +198,38 @@ td.InitControls
    font-size: 12px;
 }
 
-.TweetResultStyle td
+.TweetResultStyle
 {
-	border: solid 3px #c5bf99;
-	padding: 5px;
-	margin: 0 0 10px 0;
+	margin: 0;
 }
 
+.TweetResultStyle td
+{
+	border: solid 2px #351a13;
+	background: #472f13;
+	padding: 5px;
+	margin: 0 0 10px 0;
+	color: #a3926f;
+}
 
+.TweetResultStyle td h2
+{
+	margin: 0;
+	padding: 0 0 10px 0;
+	font-size: 15px;
+	color: #ffb142;
+	font-weight: bold;
+}
 
+p.ItemDateStyle
+{
+	margin: 0;
+	width: 100%;
+	display: block;
+	text-align: right;
+	font-size: 13px;
+	color: #765738;
+}
 
 
 .ValidatorCalloutStyle

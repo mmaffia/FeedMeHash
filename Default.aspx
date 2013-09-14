@@ -83,8 +83,7 @@
                                                 <ItemTemplate>
                                                         <tr>
                                                             <td>
-                                                                <asp:LinkButton ID="screenName_lBtn" runat="server" Text='<%#Eval("ScreenName") %>' />
-                                                                <asp:Label ID="status_lbl" runat="server" Text='<%#Eval("Text") %>' />
+                                                                <asp:Literal ID="result_lit" runat="server" Text='<%#genResultItem(eval("User.Name"), eval("User.Identifier.ScreenName"), eval("Text"), eval("CreatedAt")) %>' />
                                                             </td>
                                                         </tr>
                                                 </ItemTemplate>

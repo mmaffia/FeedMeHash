@@ -32,6 +32,19 @@ Partial Class _Default
     End Sub
 
 
+    Public Function genResultItem(ByVal name As Object, ByVal id As Object, ByVal text As Object, ByVal createdAt As Object) As String
+        Dim everythingStr As String = ""
+
+        everythingStr = "<h2>" & name & " (@" & id & ")</h2>" & _
+                        "<p>" & text & "</p>" & _
+                        "<p class='ItemDateStyle'>" & CDate(createdAt).ToShortDateString() & ", " & CDate(createdAt).ToShortTimeString() & "</p>"
+
+        Return everythingStr
+
+    End Function
+
+    'LEFT OFF HERE: 09/13/2013 - clean up the results, and implement the drill down and sorting options
+
     Protected Sub initGo_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles initGo_lBtn.Click
 
         Try
