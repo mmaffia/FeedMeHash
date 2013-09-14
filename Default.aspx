@@ -74,24 +74,32 @@
                                 <table width="100%">
                                     <tr>
                                         <td>
-                                        
-                                            <asp:Repeater ID="results_repeater" runat="server">
+                                            <asp:UpdatePanel ID="results_updatePnl" runat="server" UpdateMode="Conditional">
+                                                <ContentTemplate>
+                                                    <asp:Repeater ID="results_repeater" runat="server">
                                             
-                                                <HeaderTemplate>
-                                                    <table width="100%" class="TweetResultStyle">
-                                                </HeaderTemplate>
-                                                <ItemTemplate>
-                                                        <tr>
-                                                            <td>
-                                                                <asp:Literal ID="result_lit" runat="server" Text='<%#genResultItem(eval("User.Name"), eval("User.Identifier.ScreenName"), eval("Text"), eval("CreatedAt")) %>' />
-                                                            </td>
-                                                        </tr>
-                                                </ItemTemplate>
-                                                <FooterTemplate>
-                                                    </table>
-                                                </FooterTemplate>
-                                                
-                                            </asp:Repeater>
+                                                        <HeaderTemplate>
+                                                            <table width="100%" class="TweetResultStyle">
+                                                        </HeaderTemplate>
+                                                        <ItemTemplate>
+                                                                <tr>
+                                                                    <td>
+                                                                        <asp:Literal ID="result_lit" runat="server" Text='<%#genResultItem(eval("User.Name"), eval("User.Identifier.ScreenName"), eval("Text"), eval("CreatedAt")) %>' />
+                                                                    </td>
+                                                                </tr>
+                                                        </ItemTemplate>
+                                                        <FooterTemplate>
+                                                            </table>
+                                                        </FooterTemplate>
+                                                        
+                                                    </asp:Repeater>
+                                                </ContentTemplate>
+                                                <Triggers>
+                                                    <asp:AsyncPostBackTrigger ControlID="go_lBtn" EventName="Click" />
+                                                </Triggers>
+                                            </asp:UpdatePanel>
+                                        
+                                            
                                         
                                         </td>
                                     </tr>

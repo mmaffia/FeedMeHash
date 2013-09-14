@@ -47,19 +47,24 @@ Partial Class _Default
 
     Protected Sub initGo_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles initGo_lBtn.Click
 
+        initSearch_pnl.Visible = False
+        result_pnl.Visible = True
+
+        Dim htQuery As String = IIf(initSearch_txt.Text.Contains("#"), initSearch_txt.Text.Trim.Replace("#", "%23"), "%23" & initSearch_txt.Text.Trim)
+
+        processSearch(htQuery)
+
+    End Sub
+
+    Private Sub processSearch(ByVal searchTerm As String)
+
         Try
             auth.Authorize()
-
-
-            initSearch_pnl.Visible = False
-            result_pnl.Visible = True
-
-            Dim htQuery As String = IIf(initSearch_txt.Text.Contains("#"), initSearch_txt.Text.Trim.Replace("#", "%23"), "%23" & initSearch_txt.Text.Trim)
 
             Dim twitCtxt As TwitterContext = New TwitterContext(auth)
 
 
-            Dim srch = (From search In twitCtxt.Search Where search.Type = SearchType.Search And search.Query = htQuery Select search).SingleOrDefault
+            Dim srch = (From search In twitCtxt.Search Where search.Type = SearchType.Search And search.Query = searchTerm Select search).SingleOrDefault
             Dim resultsList As Generic.List(Of Status) = srch.Statuses
 
             results_repeater.DataSource = resultsList
@@ -72,5 +77,9 @@ Partial Class _Default
     End Sub
 
 
+    Protected Sub go_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles go_lBtn.Click
+        processSearch(search_txt.Text.Trim)
+        results_updatePnl.Update()
 
+    End Sub
 End Class
