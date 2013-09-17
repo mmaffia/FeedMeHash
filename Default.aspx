@@ -76,7 +76,7 @@
                                     <tr>
                                         <td>
                                             <br />
-                                            <asp:TextBox ID="filter_txt" runat="server" CssClass="InputStyle" Width="100%" />
+                                            <asp:TextBox ID="filter_txt" runat="server" CssClass="InputStyle" Width="97%" />
                                             <asp:TextBoxWatermarkExtender ID="filter_twExt" runat="server" WatermarkText="Filter" TargetControlID="filter_txt" />
                                         </td>
                                         <td>
@@ -86,6 +86,11 @@
                                 </table>
                                 
                                 <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <asp:Literal ID="resultHeader_lit" runat="server" />
+                                        </td>
+                                    </tr>
                                     <tr>
                                         <td>
                                             <asp:UpdatePanel ID="results_updatePnl" runat="server" UpdateMode="Conditional">

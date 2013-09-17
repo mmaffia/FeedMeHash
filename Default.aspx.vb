@@ -13,6 +13,10 @@ Partial Class _Default
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            Session.Clear()
+        End If
+
         Try
 
             auth = New ApplicationOnlyAuthorizer() With { _
@@ -70,6 +74,7 @@ Partial Class _Default
             results_repeater.DataSource = resultsList
             results_repeater.DataBind()
 
+            resultHeader_lit.Text = "<h3>Results for <i>'" & searchTerm.Remove(0, 3) & "'</i></h3>"
         Catch ex As Exception
             Throw ex
         End Try
@@ -78,7 +83,10 @@ Partial Class _Default
 
 
     Protected Sub go_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles go_lBtn.Click
-        processSearch(search_txt.Text.Trim)
+
+        Dim htQuery As String = IIf(search_txt.Text.Contains("#"), search_txt.Text.Trim.Replace("#", "%23"), "%23" & search_txt.Text.Trim)
+
+        processSearch(htQuery)
         results_updatePnl.Update()
 
     End Sub
