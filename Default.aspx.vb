@@ -8,7 +8,6 @@ Imports System.Web
 Partial Class _Default
     Inherits System.Web.UI.Page
 
-    'Private auth As SingleUserAuthorizer
     Private auth As ApplicationOnlyAuthorizer
     Private twitCtxt As TwitterContext
 
@@ -43,7 +42,6 @@ Partial Class _Default
 
     End Function
 
-    'LEFT OFF HERE: 09/13/2013 - clean up the results, and implement the drill down and sorting options
 
     Protected Sub initGo_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles initGo_lBtn.Click
 
@@ -64,8 +62,10 @@ Partial Class _Default
             Dim twitCtxt As TwitterContext = New TwitterContext(auth)
 
 
-            Dim srch = (From search In twitCtxt.Search Where search.Type = SearchType.Search And search.Query = searchTerm Select search).SingleOrDefault
+            Dim srch = (From search In twitCtxt.Search Where search.Type = SearchType.Search And search.Query = searchTerm Select search).SingleOrDefault()
             Dim resultsList As Generic.List(Of Status) = srch.Statuses
+
+            Session("CurrentSearch") = resultsList
 
             results_repeater.DataSource = resultsList
             results_repeater.DataBind()
@@ -79,6 +79,17 @@ Partial Class _Default
 
     Protected Sub go_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles go_lBtn.Click
         processSearch(search_txt.Text.Trim)
+        results_updatePnl.Update()
+
+    End Sub
+
+    Protected Sub goFilter_lBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles goFilter_lBtn.Click
+        Dim currentResults As Generic.List(Of Status) = Session("CurrentSearch")
+        Dim newSearch = (From p In currentResults Where p.Text.Contains(filter_txt.Text.Trim))
+
+        results_repeater.DataSource = newSearch
+        results_repeater.DataBind()
+
         results_updatePnl.Update()
 
     End Sub

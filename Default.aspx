@@ -61,14 +61,28 @@
                                 <table class="options_area">
                                     <tr>
                                         <td>
-                                            <asp:TextBox ID="search_txt" runat="server" CssClass="InputStyle" Width="95%" />
+                                            <asp:TextBox ID="search_txt" runat="server" CssClass="HashInputStyle" Width="95%" />
                                             <asp:TextBoxWatermarkExtender ID="search_twExt" runat="server" WatermarkText="Hashtag(s)" TargetControlID="search_txt" />
                                         </td>
                                         <td>
                                             <asp:LinkButton ID="go_lBtn" runat="server" CssClass="GoLinkBtnSmall" />
                                         </td>
                                     </tr>
-                                    
+                                    <tr>
+                                        <td colspan="2">
+                                            <span class="Divider">&nbsp;</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <br />
+                                            <asp:TextBox ID="filter_txt" runat="server" CssClass="InputStyle" Width="100%" />
+                                            <asp:TextBoxWatermarkExtender ID="filter_twExt" runat="server" WatermarkText="Filter" TargetControlID="filter_txt" />
+                                        </td>
+                                        <td>
+                                            <asp:LinkButton ID="goFilter_lBtn" runat="server" CssClass="GoLinkBtnSmall" />
+                                        </td>
+                                    </tr>
                                 </table>
                                 
                                 <table width="100%">

@@ -137,11 +137,21 @@ td.InitControls
 	color: #b08254;
 }
 
-.InputStyle
+.HashInputStyle
 {
 	font-size: 22px;
 	padding: 2px 2px 2px 19px; 
 	background: #765738 url('images/fmh_hash_sm.jpg') no-repeat left;
+	border: solid 2px #472f13;
+	font-family: Georgia, Serif;
+	color: #b08254;
+}
+
+.InputStyle
+{
+	font-size: 22px;
+	padding: 2px; 
+	background: #765738;
 	border: solid 2px #472f13;
 	font-family: Georgia, Serif;
 	color: #b08254;
@@ -188,6 +198,13 @@ td.InitControls
     font-size: 30px;
     padding: 5px;
     font-family: Georgia, Serif;
+}
+
+.Divider
+{
+	border-bottom: solid 2px #d4d3ac;
+	width: 100%;
+	display: block;
 }
 
 .Footer
