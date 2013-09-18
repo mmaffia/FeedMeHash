@@ -169,6 +169,16 @@ td.InitControls
 	color: #b08254;
 }
 
+.DDLStyle
+{
+	font-size: 14px;
+	padding: 3px;
+	font-family: Georgia, Serif;
+	background: #765738;
+	border: solid 2px #472f13;
+	color: #b08254;
+}
+
 /*My favorite way to implement mouse-over effects*/
 .GoLinkBtn
 {

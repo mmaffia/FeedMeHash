@@ -60,8 +60,8 @@
                                 
                                 <table class="options_area">
                                     <tr>
-                                        <td>
-                                            <asp:TextBox ID="search_txt" runat="server" CssClass="HashInputStyle" Width="95%" />
+                                        <td colspan="2">
+                                            <asp:TextBox ID="search_txt" runat="server" CssClass="HashInputStyle" Width="92%" />
                                             <asp:TextBoxWatermarkExtender ID="search_twExt" runat="server" WatermarkText="Hashtag(s)" TargetControlID="search_txt" />
                                         </td>
                                         <td>
@@ -69,18 +69,29 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2">
+                                        <td colspan="3">
                                             <span class="Divider">&nbsp;</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <br />
-                                            <asp:TextBox ID="filter_txt" runat="server" CssClass="InputStyle" Width="97%" />
+                                            <asp:TextBox ID="filter_txt" runat="server" CssClass="InputStyle" Width="94%" />
                                             <asp:TextBoxWatermarkExtender ID="filter_twExt" runat="server" WatermarkText="Filter" TargetControlID="filter_txt" />
                                         </td>
                                         <td>
+                                            <br />
                                             <asp:LinkButton ID="goFilter_lBtn" runat="server" CssClass="GoLinkBtnSmall" />
+                                        </td>
+                                        <td align="right">
+                                            <br />
+                                            <b>Sort by:</b>&nbsp;&nbsp;
+                                            <asp:DropDownList ID="sort_ddl" runat="server" CssClass="DDLStyle" AutoPostBack="true" Width="200px">
+                                                <asp:ListItem Text="Date (descending)" Value="0" />
+                                                <asp:ListItem Text="Date (ascending)" Value="1" />
+                                                <asp:ListItem Text="Handle (descending)" Value="2" />
+                                                <asp:ListItem Text="Handle (ascending)" Value="3" />
+                                            </asp:DropDownList>
                                         </td>
                                     </tr>
                                 </table>
@@ -115,6 +126,7 @@
                                                 </ContentTemplate>
                                                 <Triggers>
                                                     <asp:AsyncPostBackTrigger ControlID="go_lBtn" EventName="Click" />
+                                                    <asp:AsyncPostBackTrigger ControlID="sort_ddl" EventName="SelectedIndexChanged" />
                                                 </Triggers>
                                             </asp:UpdatePanel>
                                         

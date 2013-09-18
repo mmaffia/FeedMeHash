@@ -101,4 +101,25 @@ Partial Class _Default
         results_updatePnl.Update()
 
     End Sub
+
+    Protected Sub sort_ddl_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles sort_ddl.SelectedIndexChanged
+        Dim currentResults As Generic.List(Of Status) = Session("CurrentSearch")
+        Dim sortedSearch = (From p In currentResults Order By p.CreatedAt Descending)
+
+        Select Case sort_ddl.SelectedValue
+            Case 0
+                sortedSearch = (From p In currentResults Order By p.CreatedAt Descending)
+            Case 1
+                sortedSearch = (From p In currentResults Order By p.CreatedAt Ascending)
+            Case 2
+                sortedSearch = (From p In currentResults Order By p.User.Identifier.ScreenName Descending)
+            Case 3
+                sortedSearch = (From p In currentResults Order By p.User.Identifier.ScreenName Ascending)
+        End Select
+
+        results_repeater.DataSource = sortedSearch
+        results_repeater.DataBind()
+
+        results_updatePnl.Update()
+    End Sub
 End Class
