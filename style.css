@@ -270,6 +270,19 @@ p.ItemDateStyle
 	color: #765738;
 }
 
+.NoDataStyle
+{
+	color: #d4d3ac;
+	font-style: italic;
+	text-align: center;
+	padding: 5px;
+	font-size: 15px;
+	background: #a3926f;
+	display: block;
+	width: 100%;
+	font-family: Georgia, Serif;
+}
+
 
 .ValidatorCalloutStyle
 {

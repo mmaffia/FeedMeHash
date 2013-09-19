@@ -130,7 +130,7 @@
                                                 </Triggers>
                                             </asp:UpdatePanel>
                                         
-                                            
+                                            <asp:Literal ID="indicator_lit" runat="server" />
                                         
                                         </td>
                                     </tr>
