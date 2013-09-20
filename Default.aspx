@@ -10,7 +10,7 @@
 <head runat="server">
     <title>Feed Me Hash: Better than the average Twitter search tool</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 
 <body>
