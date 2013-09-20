@@ -5,6 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
+<%--****************** All code and layout by Maggy Maffia, 09/2013 *******************--%>
+
 <head runat="server">
     <title>Feed Me Hash: Better than the average Twitter search tool</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
@@ -150,12 +152,31 @@
         
         </asp:UpdatePanel>
         
+        <%--Resources used info--%>
+        <asp:ModalPopupExtender ID="resources_mpExt" runat="server" TargetControlID="dummy" PopupControlID="resources_pnl" />
+        <input type="button" id="dummy" runat="server" style="display: none;" />
         
+        <asp:Panel ID="resources_pnl" runat="server" CssClass="modalStyle" Width="350px">
             
+            <asp:UpdatePanel ID="resources_updatePnl" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:Literal ID="resources_lit" runat="server" />
+                </ContentTemplate>
+                
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="resources_lBtn" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="close_lBtn" EventName="Click" />
+                </Triggers>
+            </asp:UpdatePanel>
             
+            <span style="text-align: center; width:100%; display: block;"><asp:LinkButton ID="close_lBtn" runat="server" Text="[Close]" CausesValidation="false" /></span>
+        </asp:Panel>
+        <%--/Resources used info--%>
+            
+            <%-- ^^^^ LEFT OFF HERE, 09/19/2013: Write backend code for the resources modal popup--%>
             
             <div class="Footer">
-                Copyright &copy; 2013, <a href="mailto:maggy@zogglet.com?subject=About your awesome Twitter search tool">Maggy Maffia</a> // <a href="#">Resources used</a> // <a href="http://www.zogglet.com" target="_blank">Zogglet.com</a>
+                Copyright &copy; 2013, <a href="mailto:maggy@zogglet.com?subject=About your awesome Twitter search tool">Maggy Maffia</a> // <asp:LinkButton ID="resources_lBtn" runat="server" Text="Resources used" /> // <a href="http://www.zogglet.com" target="_blank">Zogglet.com</a>
             </div>
         
             <%--Background design--%>

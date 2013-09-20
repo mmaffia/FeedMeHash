@@ -284,6 +284,33 @@ p.ItemDateStyle
 }
 
 
+.modalStyle
+{
+    border: solid 2px #92a343;
+    background: #6d7a32;
+    padding: 7px;
+    text-align: left;
+    color: #c1ca97;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: normal;
+    overflow: auto;
+}
+
+.modalStyle a
+{
+	font-weight: bold;
+    text-decoration: underline;
+    color: #ebf2c9;
+}
+
+.modalStyle a:hover
+{
+    color: #92a343;
+    text-decoration: none;
+}
+
+
 .ValidatorCalloutStyle
 {
     background-color: #973934;
