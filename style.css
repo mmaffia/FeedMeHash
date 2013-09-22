@@ -83,7 +83,7 @@ h3
     width: 100%;
     height: 100%;
     text-align: center;
-    z-index: 2;
+    z-index: 99;
 }
 
 #center_outer_table
@@ -294,6 +294,8 @@ p.ItemDateStyle
     font-size: 11px;
     font-style: normal;
     font-weight: normal;
+    width: 350px;
+    height: 300px;
     overflow: auto;
 }
 
@@ -308,6 +310,19 @@ p.ItemDateStyle
 {
     color: #92a343;
     text-decoration: none;
+}
+
+.modalStyle h3
+{
+	font-size: 13px;
+	font-weight: bold;
+	font-style: italic;
+	color: #c1ca97;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 100%;
+	display: block;
 }
 
 

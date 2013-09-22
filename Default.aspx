@@ -20,6 +20,13 @@
         <%--Required for use of AJAX Control Toolkit --%>
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" />
         
+        <%--Background design--%>
+        <div id="top_left"></div>
+        <div id="bottom_left"></div>
+        <div id="bottom_right"></div>
+        <div id="top_right"></div>
+
+        
         <div id="outer_div">
         
         <asp:UpdatePanel ID="search_updatePnl" runat="server">
@@ -173,19 +180,10 @@
         </asp:Panel>
         <%--/Resources used info--%>
             
-            <%-- ^^^^ LEFT OFF HERE, 09/19/2013: Write backend code for the resources modal popup--%>
-            
             <div class="Footer">
                 Copyright &copy; 2013, <a href="mailto:maggy@zogglet.com?subject=About your awesome Twitter search tool">Maggy Maffia</a> // <asp:LinkButton ID="resources_lBtn" runat="server" Text="Resources used" /> // <a href="http://www.zogglet.com" target="_blank">Zogglet.com</a>
             </div>
         
-            <%--Background design--%>
-            <div id="top_left"></div>
-            <div id="bottom_left"></div>
-            <div id="bottom_right"></div>
-            <div id="top_right"></div>
-            
-            
         
         </div>
     </form>
