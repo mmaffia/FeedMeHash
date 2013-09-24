@@ -296,7 +296,14 @@ p.ItemDateStyle
     font-weight: normal;
     width: 350px;
     height: 300px;
-    overflow: auto;
+}
+
+.modalStyle div.inner
+{
+	padding: 5px;
+	margin: 5px 0 5px 0;
+	overflow: auto;
+	height: 248px;
 }
 
 .modalStyle a
