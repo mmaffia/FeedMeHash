@@ -70,15 +70,15 @@ Partial Class _Default
             Dim srch = (From search In twitCtxt.Search Where search.Type = SearchType.Search And search.Query = searchTerm Select search).SingleOrDefault()
             Dim resultsList As Generic.List(Of Status) = srch.Statuses
 
+            Session("CurrentSearch") = resultsList
+
+            results_repeater.DataSource = resultsList
+            results_repeater.DataBind()
+
             If srch.Statuses.Count = 0 Then
                 indicator_lit.Text = "<span class='NoDataStyle'>D'oh! Sorry, no recent tweets contain that hashtag. Try again!</span>"
             Else
                 indicator_lit.Text = ""
-
-                Session("CurrentSearch") = resultsList
-
-                results_repeater.DataSource = resultsList
-                results_repeater.DataBind()
 
                 resultHeader_lit.Text = "<h3>Results for <i>'" & searchTerm.Remove(0, 3) & "'</i></h3>"
 
